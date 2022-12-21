@@ -1,0 +1,46 @@
+﻿@model ShortUrl
+@{
+    ViewData["Title"] = "Подробности короткой ссылки";
+}
+
+<br />
+
+<div class="jumbotron">
+
+    <h1>Сокращённая ссылка</h1>
+
+    <br />
+
+    <p>Просмотрите и запишите Вашу ссылку</p>
+
+    <br />
+
+    <ul>
+        <li>
+            <span class="col-md-2">
+                <strong>Номер ссылки:</strong>
+            </span>
+            @Model.Id
+        </li>
+        <li>
+            <span class="col-md-2">
+                <strong>Изначальный URL:</strong>
+            </span>
+            <a href="@Model.OriginalUrl">
+                @Model.OriginalUrl
+            </a>
+        </li>
+        <li>
+            <span class="col-md-2">
+                <strong>Преобразованный URL:</strong>
+            </span>
+
+            <a asp-controller="ShortUrls" asp-action="RedirectTo" asp-route-path="@ViewData["Path"]">
+                http://localhost:5000/ShortUrls/RedirectTo/@ViewData["Path"]
+            </a>
+            <center>
+                <img src="@ViewData["Image"]" width="320" height="320" />
+            </center>
+        </li>
+    </ul>
+</div>

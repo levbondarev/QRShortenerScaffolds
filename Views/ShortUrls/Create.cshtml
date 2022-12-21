@@ -1,0 +1,28 @@
+﻿@model ShortUrl
+@{
+    ViewData["Title"] = "Создание новой ссылки";
+}
+
+<br />
+
+<div class="jumbotron">
+
+    <h1>Сокращение ссылок</h1>
+
+    <br />
+
+    <p>ВВЕДИТЕ ССЫЛКУ</p>
+
+    <br />
+
+    <form asp-action="Create">
+       
+                <input asp-for="OriginalUrl" class="form-control" placeholder="Вставьте ссылку" />
+                <img src="@ViewData["QRExample"]" width="320" height="320"/>
+                <p>Образец QR-кода</p>
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit">Shorten URL</button>
+                </span>
+           
+    </form>
+</div>
